@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    background-color: #fff;
+    color: #555;
+    font-family: 'lato' 'arial' sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-rendering:optimizeLegibility;
+}
