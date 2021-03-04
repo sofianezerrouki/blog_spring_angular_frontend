@@ -1,0 +1,11 @@
+@import "..\..\..\node_modules\bootstrap\dist\css\bootstrap.css";
+
+.header{
+    padding: 5px 20px;
+    background: royalblue;
+}
+
+.title{
+    color: aliceblue;
+    text-decoration: none;
+}
