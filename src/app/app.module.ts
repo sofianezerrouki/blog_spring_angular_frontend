@@ -10,6 +10,7 @@ import { RegisterSuccessComponent } from './auth/register-success/register-succe
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule} from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,11 @@ import { HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path:"register", component:RegisterComponent} 
+    ])
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

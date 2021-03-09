@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from '../auth.service';
 import { RegisterPayLoad } from './register-pay-load';
 
 @Component({
@@ -13,7 +14,8 @@ export class RegisterComponent implements OnInit {
 
   registerPayLoad: RegisterPayLoad;
 
-  constructor(private formBuilser:FormBuilder) {
+  constructor(private formBuilser:FormBuilder,private authService:AuthService) {
+
     this.formBuilser.group({
       'username':'',
       'email':'',
@@ -36,5 +38,17 @@ export class RegisterComponent implements OnInit {
     this.registerPayLoad.email = this.registerForm.get('email').value;
     this.registerPayLoad.password = this.registerForm.get('password').value;
     this.registerPayLoad.confirmPassword = this.registerForm.get('confirmPassword').value;
+
+    this.authService.registerd(this.registerPayLoad).subscribe(
+      data=>
+      {
+        console.log('register success');
+        
+      },
+      error=>
+      {
+        console.log('register Faild');
+      }
+      );
   }
 }
