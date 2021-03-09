@@ -7,7 +7,7 @@ import { RegisterPayLoad } from './register/register-pay-load';
   providedIn: 'root'
 })
 export class AuthService {
-  url="http://localhost:8080//api/auth";
+  url="http://localhost:8080/api/auth";
 
   constructor(private http : HttpClient) {
    }

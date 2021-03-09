@@ -16,17 +16,17 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilser:FormBuilder,private authService:AuthService) {
 
-    this.formBuilser.group({
-      'username':'',
-      'email':'',
-      'password':'',
-      'confirmPassword':''
+    this.registerForm = this.formBuilser.group({
+      username:'',
+      email:'',
+      password:'',
+      confirmPassword:''
     });
     this.registerPayLoad={
-     "username":"" ,
-     "email":"" ,
-     "password":"" ,
-     "confirmPassword":"" 
+      username:'',
+      email:'',
+      password:'',
+      confirmPassword:'' 
     };
    }
 
