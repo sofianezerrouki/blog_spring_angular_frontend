@@ -25,11 +25,7 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule.forRoot([
-      {path:"register", component:RegisterComponent} 
-    ])
-     
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
