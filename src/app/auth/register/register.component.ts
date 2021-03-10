@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
   registerForm:FormGroup;
 
   registerPayLoad: RegisterPayLoad;
+  
+  msg: string;
 
   constructor(private formBuilser:FormBuilder,private authService:AuthService,private router:Router) {
 
@@ -49,6 +51,7 @@ export class RegisterComponent implements OnInit {
       error=>
       {
         console.log('register Faild');
+        this.msg ="Register Faild";
       }
       );
   }
