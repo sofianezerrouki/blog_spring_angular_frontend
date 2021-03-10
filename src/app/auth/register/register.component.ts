@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { RegisterPayLoad } from './register-pay-load';
 
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   registerPayLoad: RegisterPayLoad;
 
-  constructor(private formBuilser:FormBuilder,private authService:AuthService) {
+  constructor(private formBuilser:FormBuilder,private authService:AuthService,private router:Router) {
 
     this.registerForm = this.formBuilser.group({
       username:'',
@@ -43,7 +44,7 @@ export class RegisterComponent implements OnInit {
       data=>
       {
         console.log('register success');
-        
+        this.router.navigateByUrl('/register-success')
       },
       error=>
       {
