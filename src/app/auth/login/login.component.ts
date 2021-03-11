@@ -40,9 +40,9 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.loginPayLoad).subscribe(data=>{
       if(data){
-        console.log(data);
+        console.log("login success :)");
       }else{
-        console.log(data);
+        console.log("Bad Credential :(");
       }
     }
     );
