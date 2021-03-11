@@ -10,7 +10,7 @@ import { RegisterSuccessComponent } from './auth/register-success/register-succe
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule} from '@angular/common/http';
-import { LocalStorageService } from 'ngx-webstorage';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 
 
@@ -28,7 +28,7 @@ import { LocalStorageService } from 'ngx-webstorage';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule ,
-    LocalStorageService
+    NgxWebstorageModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

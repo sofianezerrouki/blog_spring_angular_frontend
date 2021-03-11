@@ -19,10 +19,11 @@ export class AuthService {
     return this.http.post(this.url+"signup",register);
    }
 
-   login(register:LoginPayLoad):any{
-      return this.http.post<JwtAuthResponse>(this.url+"login",register).pipe(map(data=>{
-        this.localStorageService.store("authontificationToken",data.authontificationToken);
-        this.localStorageService.store("username",data.username);
-      }));
+   login(register:LoginPayLoad):Observable<boolean>{
+       return this.http.post<JwtAuthResponse>(this.url + "login", register).pipe(map(data => {
+       this.localStorageService.store("authontificationToken", data.authontificationToken);
+       this.localStorageService.store("username", data.username);
+       return true;
+     }));
    }
 }
