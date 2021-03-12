@@ -1,5 +1,5 @@
 export class AddPostPayLoad {
-    id :number;
+    id :string;
     title:string;
     content:string;
     username:string;
