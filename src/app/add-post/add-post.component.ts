@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AddPostPayLoad } from './add-post-pay-load';
+import { AddPostService } from './add-post.service';
 
 @Component({
   selector: 'app-add-post',
@@ -14,7 +16,7 @@ export class AddPostComponent implements OnInit {
   title = new FormControl();
   content = new FormControl();
 
-  constructor() {
+  constructor(private addPostService:AddPostService,private router:Router) {
     this.addPostForm = new FormGroup({
       title : this.title,
       content : this.content
@@ -34,7 +36,14 @@ export class AddPostComponent implements OnInit {
   addPost(){
     this.addPostPayLoad.title = this.addPostForm.get("title").value;
     this.addPostPayLoad.content = this.addPostForm.get("content").value;
+    this.addPostService.addPost(this.addPostPayLoad).subscribe(
+      data=>{
+        this.router.navigateByUrl("home");
+      },
+      error=>{
+        console.log("faild to post :(")
+      }
+      );
 
-    
   }
 }
