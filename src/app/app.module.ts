@@ -13,7 +13,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HomeComponent } from './home/home.component';
 import { AddPostComponent } from './add-post/add-post.component';
-
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 
 @NgModule({
@@ -32,7 +32,8 @@ import { AddPostComponent } from './add-post/add-post.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule ,
-    NgxWebstorageModule.forRoot()
+    NgxWebstorageModule.forRoot(),
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
