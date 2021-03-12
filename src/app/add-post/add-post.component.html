@@ -4,7 +4,7 @@
             <h3 class="new-post-content">Create new Post</h3>
         </div>
         <hr>
-        <form class="" [formGroup]="addPostForm">
+        <form class="" [formGroup]="addPostForm" (ngSubmit)="addPost()">
             <div class="form-group">
                 <label class="post-title">Title</label>
                 <input class="form-control" type="text" [formControlName]="'title'" placeholder="Title"> 
