@@ -11,5 +11,7 @@ export class AddPostComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  addPost(){
+    
+  }
 }
