@@ -7,11 +7,11 @@
         <form class="" [formGroup]="addPostForm">
             <div class="form-group">
                 <label class="post-title">Title</label>
-                <input class="form-control" type="text" [formControlName]="title" placeholder="Title"> 
+                <input class="form-control" type="text" [formControlName]="'title'" placeholder="Title"> 
             </div>
             <div class="form-group">
                 <label class="post-content">body</label>
-                <editor [formControlName]="body" [init]="{plugins :'link'}" ></editor>
+                <editor [formControlName]="'body'" [init]="{plugins :'link'}" ></editor>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Post</button>
