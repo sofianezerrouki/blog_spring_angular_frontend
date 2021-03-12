@@ -41,6 +41,7 @@ export class AddPostComponent implements OnInit {
         this.router.navigateByUrl("home");
       },
       error=>{
+        //RANI hna !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         console.log("faild to post :(")
       }
       );
