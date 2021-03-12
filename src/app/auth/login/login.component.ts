@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { RegisterPayLoad } from '../register/register-pay-load';
 import { LoginPayLoad } from './login-pay-load';
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   
   loginForm:FormGroup;
   loginPayLoad:LoginPayLoad
-  constructor(private authService:AuthService) {
+  constructor(private authService:AuthService,private router:Router) {
     
     this.loginForm = new FormGroup({
       username:
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginPayLoad).subscribe(data=>{
       if(data){
         console.log("login success :)");
+        this.router.navigateByUrl("/home");
       }else{
         console.log("Bad Credential :(");
       }
