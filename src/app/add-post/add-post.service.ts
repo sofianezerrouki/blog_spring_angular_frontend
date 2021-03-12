@@ -13,7 +13,7 @@ export class AddPostService {
 
   }
   addPost(postPayLoad:AddPostPayLoad){
-    this.http.post(this.url,postPayLoad);
+    return this.http.post(this.url,postPayLoad);
   }
 
 }
