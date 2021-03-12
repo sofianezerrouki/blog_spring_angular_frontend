@@ -24,6 +24,7 @@
     "ngx-webstorage": "^7.0.1",
     "ngx-webstorage-service": "^4.1.0",
     "rxjs": "~6.6.0",
+    "tinymce": "^5.7.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
