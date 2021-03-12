@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HomeComponent } from './home/home.component';
+import { AddPostComponent } from './add-post/add-post.component';
 
 
 
@@ -22,7 +23,8 @@ import { HomeComponent } from './home/home.component';
     RegisterComponent,
     LoginComponent,
     RegisterSuccessComponent,
-    HomeComponent
+    HomeComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,
