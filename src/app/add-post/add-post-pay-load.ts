@@ -1,7 +1,6 @@
-export class AddPostPayLoad {
-   
-    id :string;
-    title:string;
-    content:string;
-    username:string;
+export class  AddPostPayload{
+        id: string;
+        content: string;
+        title: string;
+        username: string;
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AddPostPayLoad } from './add-post-pay-load';
-import { AddPostService } from './add-post.service';
+import { AddPostService } from '../add-post.service';
+import { AddPostPayload } from './add-post-pay-load';
+
 
 @Component({
   selector: 'app-add-post',
@@ -12,7 +13,7 @@ import { AddPostService } from './add-post.service';
 export class AddPostComponent implements OnInit {
 
   addPostForm:FormGroup;
-  addPostPayLoad:AddPostPayLoad;
+  addPostPayLoad:AddPostPayload;
   title = new FormControl('');
   content = new FormControl('');
 
@@ -38,6 +39,7 @@ export class AddPostComponent implements OnInit {
   addPost(){
     this.addPostPayLoad.title = this.addPostForm.get("title").value;
     this.addPostPayLoad.content = this.addPostForm.get("content").value;
+    
     this.addPostService.addPost(this.addPostPayLoad).subscribe(
       data=>{
         console.log('aaaa')

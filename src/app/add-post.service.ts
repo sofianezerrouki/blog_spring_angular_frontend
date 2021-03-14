@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AddPostPayLoad } from './add-post-pay-load';
+import { AddPostPayload } from './add-post/add-post-pay-load';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class AddPostService {
   constructor(private http:HttpClient) {
 
   }
-  addPost(postPayLoad:AddPostPayLoad){
+  addPost(postPayLoad:AddPostPayload):any{
     console.log('start add post '+postPayLoad.content)
     return this.http.post(this.url,postPayLoad);
   }
