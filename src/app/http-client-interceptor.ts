@@ -1,27 +1,29 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { LocalStorageService } from "ngx-webstorage";
-import { Observable } from "rxjs";
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { LocalStorageService } from 'ngx-webstorage';
+import { Injectable } from '@angular/core';
 
 @Injectable()
-export class HttpClientInterceptor implements HttpInterceptor{
-    
-    constructor(private $LocalStorage:LocalStorageService){
+export class HttpClientInterceptor implements HttpInterceptor {
+  constructor(private $localStorage: LocalStorageService) {
 
+  }
+
+  intercept(req: HttpRequest<any>,
+            next: HttpHandler): Observable<HttpEvent<any>> {
+
+    const token = this.$localStorage.retrieve("authontificationToken");
+    console.log('jwt token ' + token);
+    if (token) {
+      const cloned = req.clone({
+        headers: req.headers.set("Authorization",
+          "Bearer " + token)
+      });
+
+      return next.handle(cloned);
     }
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-       const token = this.$LocalStorage.retrieve('authentificationToken');
-       console.log("jwt token "+token);
-       if(token){
-           const clouned = req.clone({
-               headers :req.headers.set("Authorization","me "+token)
-           });
-
-       } else{
-           return next.handle(req);
-       }
-        
-
+    else {
+      return next.handle(req);
     }
-
+  }
 }

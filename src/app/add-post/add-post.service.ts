@@ -7,12 +7,13 @@ import { AddPostPayLoad } from './add-post-pay-load';
 })
 export class AddPostService {
 
-  url="http://localhost:8080/api/posts/";
+  url="http://localhost:8080/api/posts";
 
   constructor(private http:HttpClient) {
 
   }
   addPost(postPayLoad:AddPostPayLoad){
+    console.log('start add post '+postPayLoad.content)
     return this.http.post(this.url,postPayLoad);
   }
 

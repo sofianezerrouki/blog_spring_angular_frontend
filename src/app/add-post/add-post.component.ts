@@ -13,13 +13,15 @@ export class AddPostComponent implements OnInit {
 
   addPostForm:FormGroup;
   addPostPayLoad:AddPostPayLoad;
-  title = new FormControl();
-  content = new FormControl();
+  title = new FormControl('');
+  content = new FormControl('');
 
   constructor(private addPostService:AddPostService,private router:Router) {
     this.addPostForm = new FormGroup({
+      
       title : this.title,
       content : this.content
+      
     });
     this.addPostPayLoad = {
       id:"",
@@ -38,7 +40,8 @@ export class AddPostComponent implements OnInit {
     this.addPostPayLoad.content = this.addPostForm.get("content").value;
     this.addPostService.addPost(this.addPostPayLoad).subscribe(
       data=>{
-        this.router.navigateByUrl("home");
+        console.log('aaaa')
+        this.router.navigateByUrl("/");
       },
       error=>{
         //RANI hna !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
