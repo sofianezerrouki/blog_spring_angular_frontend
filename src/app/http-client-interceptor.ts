@@ -1,4 +1,4 @@
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent} from '@angular/common/http';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Injectable } from '@angular/core';
@@ -13,16 +13,15 @@ export class HttpClientInterceptor implements HttpInterceptor {
             next: HttpHandler): Observable<HttpEvent<any>> {
 
     const token = this.$localStorage.retrieve("authontificationToken");
-    //console.log('jwt token ' + token);
+   
     if (token) {
-      const cloned = req.clone({
-        headers: req.headers.set ("Authorization",
-        "Bearer " + token)
-      });
-
-      console.log(req.headers);
-
-      return next.handle(cloned);
+      const  clonedRequest = req.clone({
+        headers: req.headers.set('Authorization', `Bearer `+token)
+                            .set('Accept','application/json')
+         });
+     
+     return next.handle(clonedRequest)
+      
     }
     else {
       return next.handle(req);

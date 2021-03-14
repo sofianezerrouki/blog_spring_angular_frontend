@@ -12,9 +12,9 @@ export class AddPostService {
   constructor(private http:HttpClient) {
 
   }
-  addPost(postPayLoad:AddPostPayload):any{
+  addPost(postPayLoad:AddPostPayload){
     console.log('start add post '+postPayLoad.content)
-    return this.http.post(this.url,postPayLoad);
+    return this.http.post("http://localhost:8080/api/posts",postPayLoad);
   }
 
 }
