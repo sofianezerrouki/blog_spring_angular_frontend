@@ -8,14 +8,14 @@ import { AddPostService } from '../add-post.service';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-
+  permaLink:number;
   constructor(private router:ActivatedRoute,private postService:AddPostService) {
 
   }
 
   ngOnInit(): void {
     this.router.params.subscribe(params=>{
-      params['id'];
+      this.permaLink= params['id'];
     }
     );
   }

@@ -25,4 +25,7 @@ export class AddPostService {
   
   }
 
+  getPost(permaLink:number):Observable<AddPostPayload>{
+    return this.http.get<AddPostPayload>(this.baseUrl+"/get/"+permaLink);
+  }
 }
