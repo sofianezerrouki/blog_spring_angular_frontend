@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="header">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-6">
+            <h3><a href="/post/{{post.id}}" class="post-group">{{post.title}}</a></h3>
+            <div class="author">
+                <i class="fas fa-user">Author:<p>{{post.username}}</p></i>
+            </div>
+            <p [innerHTML]="post.content"></p>
+            <div>
+                <button>Read more</button>
+                <a type="button" href="/post/{{post.id}}" class="btn btn-primary">Read more</a>
+            </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
