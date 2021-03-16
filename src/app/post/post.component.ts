@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AddPostService } from '../add-post.service';
+import { AddPostPayload } from '../add-post/add-post-pay-load';
 
 @Component({
   selector: 'app-post',
@@ -9,6 +10,8 @@ import { AddPostService } from '../add-post.service';
 })
 export class PostComponent implements OnInit {
   permaLink:number;
+  post:AddPostPayload;
+
   constructor(private router:ActivatedRoute,private postService:AddPostService) {
 
   }
@@ -18,6 +21,13 @@ export class PostComponent implements OnInit {
       this.permaLink= params['id'];
     }
     );
+    this.postService.getPost(this.permaLink).subscribe( (data:AddPostPayload) =>{
+      
+      this.post = data
+
+    },(error:any)=>{
+      console.log('Post wwith id '+this.permaLink+" Not found :(")
+    });
   }
 
 

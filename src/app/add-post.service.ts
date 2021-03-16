@@ -10,7 +10,7 @@ import { AddPostPayload } from './add-post/add-post-pay-load';
 export class AddPostService {
 
   baseUrl="http://localhost:8080/api/posts";
-
+  
   constructor(private http:HttpClient) {
 
   }
