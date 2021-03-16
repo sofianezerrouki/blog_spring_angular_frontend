@@ -41,15 +41,12 @@ export class AddPostComponent implements OnInit {
     this.addPostPayLoad.content = this.addPostForm.get("content").value;
     
     this.addPostService.addPost(this.addPostPayLoad).subscribe(
-      _data =>{
-        console.log('aaaa')
-        this.router.navigateByUrl("/");
-      },
-      error=>{
-        //RANI hna !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        console.log(error)
-      }
-      );
+      data => {
+      this.router.navigateByUrl('/');
+    },
+     error => {
+      console.log('Failure Response');
+    });
 
   }
 }

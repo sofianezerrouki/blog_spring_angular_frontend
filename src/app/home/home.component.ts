@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AddPostService } from '../add-post.service';
+import { AddPostPayload } from '../add-post/add-post-pay-load';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  
+  posts:Observable<Array<AddPostPayload>>;
 
-  constructor() { }
+  constructor(private addPostService:AddPostService) { }
 
   ngOnInit(): void {
+    this.posts = this.addPostService.getAllPosts();
   }
+
 
 }

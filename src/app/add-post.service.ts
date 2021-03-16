@@ -19,7 +19,7 @@ export class AddPostService {
     return this.http.post(this.baseUrl,postPayLoad);
   }
 
-  getPosts():Observable<Array<AddPostPayload>>{
+  getAllPosts():Observable<Array<AddPostPayload>>{
    
     return this.http.get<Array<AddPostPayload>>(this.baseUrl+"/all");
   
