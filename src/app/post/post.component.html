@@ -1,8 +1,8 @@
 <div class="header">
     <div class="container">
-      <div class="row">
+      <div class="row" >
 
-        <div class="col-md-6">
+        <div class="blogpost" *ngIf="isLoggedIn">
             <h3>{{post.title}}</h3>
             <div class="author">
                 <i class="fas fa-user"></i>Author <p>{{post.username}}</p>
@@ -11,6 +11,11 @@
             
             <hr>
         </div>
+        <div class="row" *ngIf="!isLoggedIn">
+
+          <div class="blogpost" >
+              <h3 class="h2">Please Login <a href="/login"> hear</a> to read this Post :)</h3>
+          </div>
         <hr>
       </div>
     </div>

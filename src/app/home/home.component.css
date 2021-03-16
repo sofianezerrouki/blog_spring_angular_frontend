@@ -7,7 +7,7 @@
     margin: 6px;
     padding: 20px;
     overflow: hidden;
-    height: 300px;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
 

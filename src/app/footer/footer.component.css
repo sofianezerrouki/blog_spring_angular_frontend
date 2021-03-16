@@ -1,0 +1,14 @@
+
+.nav-list li a:before {
+    background-color: #444;
+    content: "\f14f";
+    font: 400 21px/1 "Material Design Icons";
+    color: white;
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: -28px;
+    margin-right: 7px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .22s ease;
+}
