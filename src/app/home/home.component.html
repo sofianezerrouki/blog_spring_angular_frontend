@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row" *ngFor="let post of posts | async">
 
-        <div class="col-md-6">
+        <div class="info-card">
             <h3><a href="/post/{{post.id}}" class="post-group">{{post.title}}</a></h3>
             <div class="author">
                 <i class="fas fa-user"></i>Author <p>{{post.username}}</p>
