@@ -14,6 +14,11 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.router.params.subscribe(params=>{
+      params['id'];
+    }
+    );
   }
+
 
 }
