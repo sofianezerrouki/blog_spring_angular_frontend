@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { AddPostPayload } from './add-post/add-post-pay-load';
 
 @Injectable({
@@ -7,14 +9,20 @@ import { AddPostPayload } from './add-post/add-post-pay-load';
 })
 export class AddPostService {
 
-  url="http://localhost:8080/api/posts";
+  baseUrl="http://localhost:8080/api/posts";
 
   constructor(private http:HttpClient) {
 
   }
   addPost(postPayLoad:AddPostPayload){
     console.log('start add post '+postPayLoad.content)
-    return this.http.post("http://localhost:8080/api/posts",postPayLoad);
+    return this.http.post(this.baseUrl,postPayLoad);
+  }
+
+  getPosts():Observable<Array<AddPostPayload>>{
+   
+    return this.http.get<Array<AddPostPayload>>(this.baseUrl+"/all");
+  
   }
 
 }

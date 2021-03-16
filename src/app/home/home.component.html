@@ -1,6 +1,6 @@
 <div class="header">
     <div class="container">
-      <div class="row">
+      <div class="row" *ngFor="let post of posts | async">
 
         <div class="col-md-6">
             <h3><a href="/post/{{post.id}}" class="post-group">{{post.title}}</a></h3>
@@ -12,8 +12,9 @@
                 <button>Read more</button>
                 <a type="button" href="/post/{{post.id}}" class="btn btn-primary">Read more</a>
             </div>
+            <hr>
         </div>
-        
+        <hr>
       </div>
     </div>
   </div>
